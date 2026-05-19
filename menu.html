@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Cake Baker – Menu</title>
+  <link rel="stylesheet" href="stylesheetBake.css" />
+  </head>
+<body>
+
+<!-- ------ HEADER ------>
+<header class="site-header">
+  <div class="nav-container">
+    <div class="logo">
+      <div class="logo-icon">
+        <svg class="cake-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+          <line x1="32" x2="32" y1="10.62" y2="4.42" fill="none" stroke="#5f363a" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></line>
+          <path fill="#ffdd7d" stroke="#5f363a" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M29.5,10.62h5a1,1,0,0,1,1,1V21.79h-7V11.62A1,1,0,0,1,29.5,10.62Z"></path>
+          <path fill="#efd3b4" stroke="#5f363a" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M9.16,28.74H54.84V49.8a4,4,0,0,1-4,4H13.16a4,4,0,0,1-4-4V28.74Z"></path>
+          <path fill="#fffaf0" stroke="#5f363a" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M13.63,21.79H50.38a6.12,6.12,0,0,1,6.12,6.12v4.55a6.13,6.13,0,0,1-6.12,6.13 6.13,6.13,0,0,1-6.13-6.13 6.13,6.13,0,0,1-6.12,6.13 6.13,6.13,0,0,1-6.13-6.13 6.13,6.13,0,0,1-6.12,6.13 6.13,6.13,0,0,1-6.13-6.13V27.91a6.12,6.12,0,0,1,6.13-6.12Z"></path>
+          <path fill="#d2da95" stroke="#5f363a" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M51.91,59.58H12.09a6,6,0,0,1-5.34-3.27L3.24,49.46A1,1,0,0,1,4.13,48H59.87a1,1,0,0,1,.89,1.45l-3.5,6.85A6,6,0,0,1,51.91,59.58Z"></path>
+        </svg>
+      </div>
+      <div class="logo-text-wrapper">
+        <span class="logo-text">Happy Cake Baker</span>
+      </div>
+    </div>
+    <nav class="main-nav">
+       <a href="index.html">Home</a>
+       <a href="menu.html" class="nav-active">Menu</a>
+       <a href="index.html#gallery">Gallery</a>
+       <a href="index.html#about">About</a>
+       <a href="index.html#contact">Contact</a>
+    </nav>
+   </div>
+</header>
+
+<!----------- HERO --------->
+<section class="shop-hero">
+  <div class="shop-hero-inner">
+    <p class="shop-hero-sub">Home made cakes, cupcakes and cookies for your precious moments to share happiness together</p>
+    <h1 class="shop-hero-title">Our Menu</h1>
+    <p class="shop-hero-tagline">Explore our delicious menu for order.</p>
+  </div>
+</section>
+
+<!------- FILTER ------->
+<div class="filter-section">
+  <input type="radio" name="filter" id="all" checked>
+  <input type="radio" name="filter" id="treats">
+  <input type="radio" name="filter" id="cookies">
+  <input type="radio" name="filter" id="cakes">
+
+  <div class="filter-bar-wrap">
+    <div class="filter-bar">
+      <label for="all"     class="filter-btn">All</label>
+      <label for="treats"  class="filter-btn">Brownies &amp; Cupcakes</label>
+      <label for="cookies" class="filter-btn">Cookies</label>
+      <label for="cakes"   class="filter-btn">Cakes</label>
+    </div>
+  </div>
+
+  <main class="shop-main">
+
+    <!--------- BROWNIES & CUPCAKES ------------------>
+    <div class="category-block treats-block">
+      <div class="section-label">
+        <span class="section-label-icon">✦</span>
+        <span class="section-label-text">Brownies &amp; Cupcakes</span>
+        <span class="section-label-icon">✦</span>
+      </div>
+      <p class="section-note">Brownies sold individually · Cupcakes in bundles of 4 · Custom quantities always welcome</p>
+
+      <!--------- Brownies sub-heading --------------->
+      <h2 class="sub-heading">Brownies</h2>
+      <div class="product-grid">
+
+        <!--------- Fudge Brownie ------>
+        <div class="product-card">
+          <div class="product-img-wrap">
+            <img src="images/fudge.webp" alt="Fudge Brownie" class="product-img">
+            <span class="product-badge">Bestseller</span>
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Fudge Brownie</h3>
+            <p class="product-taste">
+              <span class="taste-dot" style="background:#3b1f0e;"></span>Rich Dark Chocolate
+            </p>
+            <p class="product-desc">Dense, fudgy centre with a classic crinkle top. Pure chocolate indulgence in every bite.</p>
+            <div class="product-footer">
+              <span class="product-qty">per piece</span>
+              <span class="product-price">15 kr</span>
+            </div>
+            <a href="index.html#contact" class="order-btn">Order Now</a>
+          </div>
+        </div>
+
+        <!-- Cakey Brownie -->
+        <div class="product-card">
+          <div class="product-img-wrap">
+            <img src="images/cakybrowni.webp" alt="Cakey Brownie" class="product-img">
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Cakey Brownie</h3>
+            <p class="product-taste">
+              <span class="taste-dot" style="background:#5c3118;"></span>Chocolate &amp; Ganache
+            </p>
+            <p class="product-desc">Lighter and more cake-like texture, topped with a rich chocolate ganache and chocolate chips.</p>
+            <div class="product-footer">
+              <span class="product-qty">per piece</span>
+              <span class="product-price">15 kr</span>
+            </div>
+            <a href="index.html#contact" class="order-btn">Order Now</a>
+          </div>
+        </div>
+
+      </div><!-- end of brownie grid -->
+
+      <!-- Cupcakes sub-heading -->
+      <h2 class="sub-heading" style="margin-top: 48px;">Cupcakes</h2>
+      <div class="product-grid">
+
+        <!-- Chocolate Cupcake -->
+        <div class="product-card product-card--bundle">
+          <div class="product-img-wrap">
+            <img src="images/cupcakechocolate.webp" alt="Chocolate Cupcakes" class="product-img">
+            <span class="product-badge badge--gold">Bundle of 4</span>
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Chocolate Cupcakes</h3>
+            <p class="product-taste">
+              <span class="taste-dot" style="background:#2a1208;"></span>Chocolate &amp; Ganache
+            </p>
+            <p class="product-desc">Moist chocolate sponge with silky ganache frosting and your choice of toppings — sprinkles or toffee crunch.</p>
+            <div class="product-footer">
+              <span class="product-qty">bundle of 4</span>
+              <span class="product-price">60 kr</span>
+            </div>
+            <a href="index.html#contact" class="order-btn">Order Now</a>
+          </div>
+        </div>
+
+        <!-- Vanilla Cupcake -->
+        <div class="product-card product-card--bundle">
+          <div class="product-img-wrap">
+            <img src="images/vanilacupcake.webp" alt="Vanilla Cupcakes" class="product-img">
+            <span class="product-badge badge--gold">Bundle of 4</span>
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Vanilla Cupcakes</h3>
+            <p class="product-taste">
+              <span class="taste-dot" style="background:#d4924a;"></span>Vanilla &amp; Buttercream
+            </p>
+            <p class="product-desc">Light, golden vanilla sponge with a soft domed top. Simple, buttery and perfectly sweet.</p>
+            <div class="product-footer">
+              <span class="product-qty">bundle of 4</span>
+              <span class="product-price">40 kr</span>
+            </div>
+            <a href="index.html#contact" class="order-btn">Order Now</a>
+          </div>
+        </div>
+
+      </div><!-- end of cupcake grid -->
+
+      <div class="custom-order-banner">
+        <span class="custom-icon">✉</span>
+        <div>
+          <strong>Want a custom order?</strong>
+          <p>Different quantity, special flavour or gift box? <a href="index.html#contact">Get in touch</a> and we'll bake it for you.</p>
+        </div>
+      </div>
+    </div><!-- end of treats-block -->
+
+
+    <!--------- COOKIES----------->
+    <div class="category-block cookie-block">
+      <div class="section-label">
+        <span class="section-label-icon">✦</span>
+        <span class="section-label-text">Cookies</span>
+        <span class="section-label-icon">✦</span>
+      </div>
+      <p class="section-note">Sold individually · Custom quantities available — just ask!</p>
+
+      <div class="product-grid">
+
+        <!-- Choc Chip Cookie -->
+        <div class="product-card">
+          <div class="product-img-wrap">
+            <img src="images/chocochipcookies.webp" alt="Chocolate Chip Cookies" class="product-img">
+            <span class="product-badge">Bestseller</span>
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Chocolate Chip Cookies</h3>
+            <p class="product-taste">
+              <span class="taste-dot" style="background:#c8843a;"></span>Buttery Vanilla &amp; Chocolate
+            </p>
+            <p class="product-desc">Golden, chewy cookies packed with melted chocolate chips. Freshly baked and utterly irresistible.</p>
+            <div class="product-footer">
+              <span class="product-qty">per piece</span>
+              <span class="product-price">5 kr</span>
+            </div>
+            <a href="index.html#contact" class="order-btn">Order Now</a>
+          </div>
+        </div>
+
+      </div><!-- end of cookie grid -->
+
+      <div class="custom-order-banner">
+        <span class="custom-icon">✉</span>
+        <div>
+          <strong>Want more varieties?</strong>
+          <p>We can bake pistachio, lemon shortbread, Oreo and more. <a href="index.html#contact">Contact us</a> for a custom cookie box.</p>
+        </div>
+      </div>
+    </div><!-- end of cookie-block -->
+
+
+    <!---------------CAKES---------------->
+    <div class="category-block cake-block">
+      <div class="section-label">
+        <span class="section-label-icon">✦</span>
+        <span class="section-label-text">Cakes</span>
+        <span class="section-label-icon">✦</span>
+      </div>
+      <p class="section-note">Whole cakes made to order · Every cake is uniquely designed for you</p>
+
+      <div class="product-grid">
+
+        <!-- Custom Celebration Cake -->
+        <div class="product-card product-card--bundle">
+          <div class="product-img-wrap">
+            <img src="images/customcake.webp" alt="Custom Celebration Cake" class="product-img">
+            <span class="product-badge">Custom Order</span>
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Custom Celebration Cake</h3>
+            <p class="product-taste">
+              <span class="taste-dot" style="background:#c8b89a;"></span>Your choice of flavour &amp; design
+            </p>
+            <p class="product-desc">Handcrafted to your theme — fondant figures, personalised messages, any colour. Perfect for birthdays, weddings &amp; every special occasion.</p>
+            <div class="product-footer">
+              <span class="product-qty">whole cake</span>
+              <span class="product-price">from 450 kr, 60 kr per slice</span>
+            </div>
+            <a href="index.html#contact" class="order-btn">Get a Quote</a>
+          </div>
+        </div>
+
+      </div><!-- end of cake grid -->
+
+      <div class="custom-order-banner">
+        <span class="custom-icon">✉</span>
+        <div>
+          <strong>Planning something special?</strong>
+          <p>Every cake is made to order — share your idea and we'll make it happen. <a href="index.html#contact">Contact us</a> for a personalised quote.</p>
+        </div>
+      </div>
+    </div><!-- end of cake-block -->
+
+  </main>
+</div><!-- end of filter-section -->
+
+<!-- ══ FOOTER ══ -->
+<footer class="BakerSiteFooter">
+  <div class="footer-container">
+    <p class="footer-copy">© 2026 Sobia Bashir. All rights reserved.</p>
+    <div class="instagram-icon">
+      <svg class="inst-icon" width="800px" height="800px" viewBox="0 0 3364.7 3364.7" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="ig0" cx="217.76" cy="3290.99" r="4271.92" gradientUnits="userSpaceOnUse">
+            <stop offset=".09" stop-color="#fa8f21"/><stop offset=".78" stop-color="#d82d7e"/>
+          </radialGradient>
+          <radialGradient id="ig1" cx="2330.61" cy="3182.95" r="3759.33" gradientUnits="userSpaceOnUse">
+            <stop offset=".64" stop-color="#8c3aaa" stop-opacity="0"/><stop offset="1" stop-color="#8c3aaa"/>
+          </radialGradient>
+        </defs>
+        <path d="M853.2,3352.8c-200.1-9.1-308.8-42.4-381.1-70.6-95.8-37.3-164.1-81.7-236-153.5S119.7,2988.6,82.6,2892.8c-28.2-72.3-61.5-181-70.6-381.1C2,2295.4,0,2230.5,0,1682.5s2.2-612.8,11.9-829.3C21,653.1,54.5,544.6,82.5,472.1,119.8,376.3,164.3,308,236,236c71.8-71.8,140.1-116.4,236-153.5C544.3,54.3,653,21,853.1,11.9,1069.5,2,1134.5,0,1682.3,0c548,0,612.8,2.2,829.3,11.9,200.1,9.1,308.6,42.6,381.1,70.6,95.8,37.1,164.1,81.7,236,153.5s116.2,140.2,153.5,236c28.2,72.3,61.5,181,70.6,381.1,9.9,216.5,11.9,281.3,11.9,829.3,0,547.8-2,612.8-11.9,829.3-9.1,200.1-42.6,308.8-70.6,381.1-37.3,95.8-81.7,164.1-153.5,235.9s-140.2,116.2-236,153.5c-72.3,28.2-181,61.5-381.1,70.6-216.3,9.9-281.3,11.9-829.3,11.9-547.8,0-612.8-1.9-829.1-11.9" fill="url(#ig0)"/>
+        <path d="M853.2,3352.8c-200.1-9.1-308.8-42.4-381.1-70.6-95.8-37.3-164.1-81.7-236-153.5S119.7,2988.6,82.6,2892.8c-28.2-72.3-61.5-181-70.6-381.1C2,2295.4,0,2230.5,0,1682.5s2.2-612.8,11.9-829.3C21,653.1,54.5,544.6,82.5,472.1,119.8,376.3,164.3,308,236,236c71.8-71.8,140.1-116.4,236-153.5C544.3,54.3,653,21,853.1,11.9,1069.5,2,1134.5,0,1682.3,0c548,0,612.8,2.2,829.3,11.9,200.1,9.1,308.6,42.6,381.1,70.6,95.8,37.1,164.1,81.7,236,153.5s116.2,140.2,153.5,236c28.2,72.3,61.5,181,70.6,381.1,9.9,216.5,11.9,281.3,11.9,829.3,0,547.8-2,612.8-11.9,829.3-9.1,200.1-42.6,308.8-70.6,381.1-37.3,95.8-81.7,164.1-153.5,235.9s-140.2,116.2-236,153.5c-72.3,28.2-181,61.5-381.1,70.6-216.3,9.9-281.3,11.9-829.3,11.9-547.8,0-612.8-1.9-829.1-11.9" fill="url(#ig1)"/>
+        <path d="M1269.25,1689.52c0-230.11,186.49-416.7,416.6-416.7s416.7,186.59,416.7,416.7-186.59,416.7-416.7,416.7-416.6-186.59-416.6-416.7m-225.26,0c0,354.5,287.36,641.86,641.86,641.86s641.86-287.36,641.86-641.86-287.36-641.86-641.86-641.86S1044,1335,1044,1689.52m1159.13-667.31a150,150,0,1,0,150.06-149.94h-0.06a150.07,150.07,0,0,0-150,149.94M1180.85,2707c-121.87-5.55-188.11-25.85-232.13-43-58.36-22.72-100-49.78-143.78-93.5s-70.88-85.32-93.5-143.68c-17.16-44-37.46-110.26-43-232.13-6.06-131.76-7.27-171.34-7.27-505.15s1.31-373.28,7.27-505.15c5.55-121.87,26-188,43-232.13,22.72-58.36,49.78-100,93.5-143.78s85.32-70.88,143.78-93.5c44-17.16,110.26-37.46,232.13-43,131.76-6.06,171.34-7.27,505-7.27S2059.13,666,2191,672c121.87,5.55,188,26,232.13,43,58.36,22.62,100,49.78,143.78,93.5s70.78,85.42,93.5,143.78c17.16,44,37.46,110.26,43,232.13,6.06,131.87,7.27,171.34,7.27,505.15s-1.21,373.28-7.27,505.15c-5.55,121.87-25.95,188.11-43,232.13-22.72,58.36-49.78,100-93.5,143.68s-85.42,70.78-143.78,93.5c-44,17.16-110.26,37.46-232.13,43-131.76,6.06-171.34,7.27-505.15,7.27s-373.28-1.21-505-7.27M1170.5,447.09c-133.07,6.06-224,27.16-303.41,58.06-82.19,31.91-151.86,74.72-221.43,144.18S533.39,788.47,501.48,870.76c-30.9,79.46-52,170.34-58.06,303.41-6.16,133.28-7.57,175.89-7.57,515.35s1.41,382.07,7.57,515.35c6.06,133.08,27.16,223.95,58.06,303.41,31.91,82.19,74.62,152,144.18,221.43s139.14,112.18,221.43,144.18c79.56,30.9,170.34,52,303.41,58.06,133.35,6.06,175.89,7.57,515.35,7.57s382.07-1.41,515.35-7.57c133.08-6.06,223.95-27.16,303.41-58.06,82.19-32,151.86-74.72,221.43-144.18s112.18-139.24,144.18-221.43c30.9-79.46,52.1-170.34,58.06-303.41,6.06-133.38,7.47-175.89,7.47-515.35s-1.41-382.07-7.47-515.35c-6.06-133.08-27.16-224-58.06-303.41-32-82.19-74.72-151.86-144.18-221.43S2586.8,537.06,2504.71,505.15c-79.56-30.9-170.44-52.1-303.41-58.06C2068,441,2025.41,439.52,1686,439.52s-382.1,1.41-515.45,7.57" fill="#ffffff"/>
+      </svg>
+      <a href="https://www.instagram.com/happy.cakebaker" target="_blank">We are on Instagram</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
