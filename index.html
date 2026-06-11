@@ -32,8 +32,47 @@
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
     </nav>
+    <!-- Cart Toggle Button -->
+    <button class="cart-toggle-btn" id="cartToggleBtn" aria-label="Open cart">
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+        <line x1="3" y1="6" x2="21" y2="6"/>
+        <path d="M16 10a4 4 0 01-8 0"/>
+      </svg>
+      <span class="cart-count" id="cartCount" style="display:none;">0</span>
+    </button>
   </div>
 </header>
+<!-- added drawer here to access card via main page -->
+ <div class="cart-overlay" id="cartOverlay"></div>
+<aside class="cart-drawer" id="cartDrawer">
+  <div class="cart-drawer-header">
+    <h2>Your Basket</h2>
+    <button class="cart-close-btn" id="cartCloseBtn">✕</button>
+  </div>
+  <div class="cart-items" id="cartItems">
+    <div class="cart-empty" id="cartEmpty">
+      <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#c8b89a" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+        <line x1="3" y1="6" x2="21" y2="6"/>
+        <path d="M16 10a4 4 0 01-8 0"/>
+      </svg>
+      <p>Your basket is empty</p>
+      <span>Add items from the menu below</span>
+      <a href="menu.html" class="cart-checkout-btn" style="margin-top:16px;">Browse Menu</a>
+    </div>
+  </div>
+  <div class="cart-footer" id="cartFooter" style="display:none;">
+    <div class="cart-total-row">
+      <span>Total</span>
+      <span class="cart-total-amount" id="cartTotalAmount">0 kr</span>
+    </div>
+    <p class="cart-note">This is an estimate. Final price confirmed on order.</p>
+    <button class="cart-checkout-btn" id="whatsappOrderBtn">Send Order via WhatsApp</button>
+    <a href="menu.html" class="cart-clear-btn" style="text-align:center; display:block; margin-top:8px;">Add more items</a>
+  </div>
+</aside>
+
 
 <!--------------- HERO ------------------>
 <section class="hero" id="home">
@@ -507,6 +546,92 @@
     </div>
   </div>
 </footer>
+<script>
+  if (!sessionStorage.getItem('hcb_session')) {
+    localStorage.removeItem('hcb_cart');
+    sessionStorage.setItem('hcb_session', '1');
+  }
 
+  const cart = JSON.parse(localStorage.getItem('hcb_cart') || '{}');
+
+  const cartCountEl  = document.getElementById('cartCount');
+  const cartDrawer   = document.getElementById('cartDrawer');
+  const cartOverlay  = document.getElementById('cartOverlay');
+  const cartItemsEl  = document.getElementById('cartItems');
+  const cartEmptyEl  = document.getElementById('cartEmpty');
+  const cartFooterEl = document.getElementById('cartFooter');
+  const cartTotalEl  = document.getElementById('cartTotalAmount');
+
+  document.getElementById('cartToggleBtn').addEventListener('click', () => {
+    cartDrawer.classList.add('cart-drawer--open');
+    cartOverlay.classList.add('cart-overlay--visible');
+  });
+  function closeCart() {
+    cartDrawer.classList.remove('cart-drawer--open');
+    cartOverlay.classList.remove('cart-overlay--visible');
+  }
+  document.getElementById('cartCloseBtn').addEventListener('click', closeCart);
+  cartOverlay.addEventListener('click', closeCart);
+
+  function renderCart() {
+    const keys = Object.keys(cart).filter(k => cart[k].qty > 0);
+    cartItemsEl.querySelectorAll('.cart-line').forEach(el => el.remove());
+
+    if (keys.length === 0) {
+      cartEmptyEl.style.display = 'flex';
+      cartFooterEl.style.display = 'none';
+      cartCountEl.style.display = 'none';
+      return;
+    }
+
+    cartEmptyEl.style.display = 'none';
+    cartFooterEl.style.display = 'block';
+    let total = 0;
+
+    keys.forEach(key => {
+      const item = cart[key];
+      const lineTotal = item.price * item.qty;
+      total += lineTotal;
+      const line = document.createElement('div');
+      line.className = 'cart-line';
+      line.innerHTML = `
+        <div class="cart-line-info">
+          <span class="cart-line-name">${item.name}</span>
+          <span class="cart-line-unit">${item.unit}</span>
+        </div>
+        <div class="cart-line-right">
+          <span class="cart-line-qty">× ${item.qty}</span>
+          <span class="cart-line-price">${lineTotal} kr</span>
+        </div>`;
+      cartItemsEl.appendChild(line);
+    });
+
+    const totalItems = keys.reduce((s, k) => s + cart[k].qty, 0);
+    cartCountEl.textContent = totalItems;
+    cartCountEl.style.display = 'flex';
+    cartTotalEl.textContent = total + ' kr';
+  }
+
+  renderCart();
+  document.getElementById('whatsappOrderBtn').addEventListener('click', () => {
+  const keys = Object.keys(cart).filter(k => cart[k].qty > 0);
+  if (keys.length === 0) return;
+
+  let message = 'Hi Happy Cake Baker! 🎂\n\nI would like to place an order:\n\n';
+
+  keys.forEach(key => {
+    const item = cart[key];
+    message += `• ${item.qty}x ${item.name} (${item.unit})\n`;
+  });
+
+  const total = keys.reduce((sum, k) => sum + cart[k].price * cart[k].qty, 0);
+  message += `\nEstimated Total: ${total} kr`;
+  message += '\n\nDate needed: \nSpecial requests: ';
+
+  const encoded = encodeURIComponent(message);
+  window.open(`https://wa.me/46739818941?text=${encoded}`, '_blank');
+});
+
+</script>
 </body>
 </html>

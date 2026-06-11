@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Happy Cake Baker – Menu</title>
   <link rel="stylesheet" href="stylesheetBake.css" />
-  </head>
+</head>
 <body>
 
 <!-- ------ HEADER ------>
@@ -32,8 +32,45 @@
        <a href="index.html#about">About</a>
        <a href="index.html#contact">Contact</a>
     </nav>
-   </div>
+    <button class="cart-toggle-btn" id="cartToggleBtn" aria-label="Open cart">
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+        <line x1="3" y1="6" x2="21" y2="6"/>
+        <path d="M16 10a4 4 0 01-8 0"/>
+      </svg>
+      <span class="cart-count" id="cartCount" style="display:none;">0</span>
+    </button>
+  </div>
 </header>
+
+<!-- cart drawer -->
+<div class="cart-overlay" id="cartOverlay"></div>
+<aside class="cart-drawer" id="cartDrawer">
+  <div class="cart-drawer-header">
+    <h2>Your Basket</h2>
+    <button class="cart-close-btn" id="cartCloseBtn">✕</button>
+  </div>
+  <div class="cart-items" id="cartItems">
+    <div class="cart-empty" id="cartEmpty">
+      <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#c8b89a" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+        <line x1="3" y1="6" x2="21" y2="6"/>
+        <path d="M16 10a4 4 0 01-8 0"/>
+      </svg>
+      <p>Your basket is empty</p>
+      <span>Add items from the menu below</span>
+    </div>
+  </div>
+  <div class="cart-footer" id="cartFooter" style="display:none;">
+    <div class="cart-total-row">
+      <span>Total</span>
+      <span class="cart-total-amount" id="cartTotalAmount">0 kr</span>
+    </div>
+    <p class="cart-note">This is an estimate. Final price confirmed on order.</p>
+    <a href="index.html#contact" class="cart-checkout-btn">Send Order Enquiry</a>
+    <button class="cart-clear-btn" id="cartClearBtn">Clear basket</button>
+  </div>
+</aside>
 
 <!----------- HERO --------->
 <section class="shop-hero">
@@ -71,11 +108,10 @@
       </div>
       <p class="section-note">Brownies sold individually · Cupcakes in bundles of 4 · Custom quantities always welcome</p>
 
-      <!--------- Brownies sub-heading --------------->
       <h2 class="sub-heading">Brownies</h2>
       <div class="product-grid">
 
-        <!--------- Fudge Brownie ------>
+        <!-- Fudge Brownie -->
         <div class="product-card">
           <div class="product-img-wrap">
             <img src="images/fudge.webp" alt="Fudge Brownie" class="product-img">
@@ -91,7 +127,11 @@
               <span class="product-qty">per piece</span>
               <span class="product-price">15 kr</span>
             </div>
-            <a href="index.html#contact" class="order-btn">Order Now</a>
+            <div class="cart-controls" data-name="Fudge Brownie" data-price="15" data-unit="per piece">
+              <button class="qty-btn qty-minus">−</button>
+              <span class="qty-display">0</span>
+              <button class="qty-btn qty-plus">+</button>
+            </div>
           </div>
         </div>
 
@@ -110,13 +150,16 @@
               <span class="product-qty">per piece</span>
               <span class="product-price">15 kr</span>
             </div>
-            <a href="index.html#contact" class="order-btn">Order Now</a>
+            <div class="cart-controls" data-name="Cakey Brownie" data-price="15" data-unit="per piece">
+              <button class="qty-btn qty-minus">−</button>
+              <span class="qty-display">0</span>
+              <button class="qty-btn qty-plus">+</button>
+            </div>
           </div>
         </div>
 
       </div><!-- end of brownie grid -->
 
-      <!-- Cupcakes sub-heading -->
       <h2 class="sub-heading" style="margin-top: 48px;">Cupcakes</h2>
       <div class="product-grid">
 
@@ -136,7 +179,11 @@
               <span class="product-qty">bundle of 4</span>
               <span class="product-price">60 kr</span>
             </div>
-            <a href="index.html#contact" class="order-btn">Order Now</a>
+            <div class="cart-controls" data-name="Chocolate Cupcakes" data-price="60" data-unit="bundle of 4">
+              <button class="qty-btn qty-minus">−</button>
+              <span class="qty-display">0</span>
+              <button class="qty-btn qty-plus">+</button>
+            </div>
           </div>
         </div>
 
@@ -156,7 +203,11 @@
               <span class="product-qty">bundle of 4</span>
               <span class="product-price">40 kr</span>
             </div>
-            <a href="index.html#contact" class="order-btn">Order Now</a>
+            <div class="cart-controls" data-name="Vanilla Cupcakes" data-price="40" data-unit="bundle of 4">
+              <button class="qty-btn qty-minus">−</button>
+              <span class="qty-display">0</span>
+              <button class="qty-btn qty-plus">+</button>
+            </div>
           </div>
         </div>
 
@@ -172,7 +223,7 @@
     </div><!-- end of treats-block -->
 
 
-    <!--------- COOKIES----------->
+    <!--------- COOKIES ----------->
     <div class="category-block cookie-block">
       <div class="section-label">
         <span class="section-label-icon">✦</span>
@@ -199,7 +250,11 @@
               <span class="product-qty">per piece</span>
               <span class="product-price">5 kr</span>
             </div>
-            <a href="index.html#contact" class="order-btn">Order Now</a>
+            <div class="cart-controls" data-name="Chocolate Chip Cookies" data-price="5" data-unit="per piece">
+              <button class="qty-btn qty-minus">−</button>
+              <span class="qty-display">0</span>
+              <button class="qty-btn qty-plus">+</button>
+            </div>
           </div>
         </div>
 
@@ -215,7 +270,7 @@
     </div><!-- end of cookie-block -->
 
 
-    <!---------------CAKES---------------->
+    <!--------------- CAKES --------------->
     <div class="category-block cake-block">
       <div class="section-label">
         <span class="section-label-icon">✦</span>
@@ -282,6 +337,134 @@
     </div>
   </div>
 </footer>
+<script>
+// to empty basket for the first time loading of website and start a new session. This way we can keep the cart data during the session but clear it when user comes back after closing the tab or browser.
+  if (!sessionStorage.getItem('hcb_session')) {
+  localStorage.removeItem('hcb_cart');
+  sessionStorage.setItem('hcb_session', '1');
+}
+  const cart = JSON.parse(localStorage.getItem('hcb_cart') || '{}');
+
+  const cartCountEl  = document.getElementById('cartCount');
+  const cartDrawer   = document.getElementById('cartDrawer');
+  const cartOverlay  = document.getElementById('cartOverlay');
+  const cartItemsEl  = document.getElementById('cartItems');
+  const cartEmptyEl  = document.getElementById('cartEmpty');
+  const cartFooterEl = document.getElementById('cartFooter');
+  const cartTotalEl  = document.getElementById('cartTotalAmount');
+
+  function saveCart() {
+    localStorage.setItem('hcb_cart', JSON.stringify(cart));
+  }
+
+  document.getElementById('cartToggleBtn').addEventListener('click', () => {
+    cartDrawer.classList.add('cart-drawer--open');
+    cartOverlay.classList.add('cart-overlay--visible');
+  });
+  function closeCart() {
+    cartDrawer.classList.remove('cart-drawer--open');
+    cartOverlay.classList.remove('cart-overlay--visible');
+  }
+  document.getElementById('cartCloseBtn').addEventListener('click', closeCart);
+  cartOverlay.addEventListener('click', closeCart);
+
+  document.getElementById('cartClearBtn').addEventListener('click', () => {
+    Object.keys(cart).forEach(k => {
+      cart[k].qty = 0;
+      const el = document.querySelector(`.cart-controls[data-name="${k}"] .qty-display`);
+      if (el) el.textContent = '0';
+      delete cart[k];
+    });
+    saveCart();
+    renderCart();
+  });
+
+  function renderCart() {
+    const keys = Object.keys(cart).filter(k => cart[k].qty > 0);
+    cartItemsEl.querySelectorAll('.cart-line').forEach(el => el.remove());
+    if (keys.length === 0) {
+      cartEmptyEl.style.display = 'flex';
+      cartFooterEl.style.display = 'none';
+      cartCountEl.style.display = 'none';
+      return;
+    }
+    cartEmptyEl.style.display = 'none';
+    cartFooterEl.style.display = 'block';
+    let total = 0;
+    keys.forEach(key => {
+      const item = cart[key];
+      const lineTotal = item.price * item.qty;
+      total += lineTotal;
+      const line = document.createElement('div');
+      line.className = 'cart-line';
+      line.innerHTML = `
+        <div class="cart-line-info">
+          <span class="cart-line-name">${item.name}</span>
+          <span class="cart-line-unit">${item.unit}</span>
+        </div>
+        <div class="cart-line-right">
+          <div class="cart-line-controls">
+           <button class="cart-qty-btn" data-key="${key}" data-action="minus">−</button>
+           <span class="cart-line-qty">${item.qty}</span>
+           <button class="cart-qty-btn" data-key="${key}" data-action="plus">+</button>
+          </div>
+          <span class="cart-line-price">${lineTotal} kr</span>
+        </div>`;
+        cartItemsEl.appendChild(line);
+         line.querySelectorAll('.cart-qty-btn').forEach(btn => {
+          btn.addEventListener('click', () => {
+          const k = btn.dataset.key;
+           if (btn.dataset.action === 'plus') {
+             cart[k].qty++;
+            } else {
+            cart[k].qty--;
+            if (cart[k].qty === 0) delete cart[k];
+         }
+    
+        const cardDisplay = document.querySelector(`.cart-controls[data-name="${k}"] .qty-display`);
+        if (cardDisplay) cardDisplay.textContent = cart[k] ? cart[k].qty : '0';
+         saveCart();
+        renderCart();
+        });
+       });
+      });
+    const totalItems = keys.reduce((s, k) => s + cart[k].qty, 0);
+    cartCountEl.textContent = totalItems;
+    cartCountEl.style.display = 'flex';
+    cartTotalEl.textContent = total + ' kr';
+  }
+
+  document.querySelectorAll('.cart-controls').forEach(controls => {
+    const name    = controls.dataset.name;
+    const price   = parseInt(controls.dataset.price, 10);
+    const unit    = controls.dataset.unit;
+    const display = controls.querySelector('.qty-display');
+
+    // Restore saved quantity on the card
+    if (cart[name] && cart[name].qty > 0) {
+      display.textContent = cart[name].qty;
+    }
+
+    controls.querySelector('.qty-plus').addEventListener('click', () => {
+      if (!cart[name]) cart[name] = { name, price, unit, qty: 0 };
+      cart[name].qty++;
+      display.textContent = cart[name].qty;
+      saveCart();
+      renderCart();
+    });
+    controls.querySelector('.qty-minus').addEventListener('click', () => {
+      if (!cart[name] || cart[name].qty === 0) return;
+      cart[name].qty--;
+      display.textContent = cart[name].qty;
+      if (cart[name].qty === 0) delete cart[name];
+      saveCart();
+      renderCart();
+    });
+  });
+
+  // Render on page load to restore cart state
+  renderCart();
+</script>
 
 </body>
 </html>
